@@ -16,15 +16,11 @@
       <BaseInput v-model="event.location" label="Location" type="text" />
 
       <h3>Are pets allowed?</h3>
-      <div>
-        <input type="radio" v-model="event.pets" :value="1" name="pets" />
-        <label>Yes</label>
-      </div>
-
-      <div>
-        <input type="radio" v-model="event.pets" :value="0" name="pets" />
-        <label>No</label>
-      </div>
+      <BaseRadioGroup
+        v-model="event.petOptions"
+        name="pets"
+        :options="petOptions"
+      />
 
       <h3>Extras</h3>
       <BaseCheckbox v-model="event.extras.catering" label="catering" />
@@ -39,12 +35,14 @@
 import BaseInput from "@/components/BaseInput.vue";
 import BaseSelect from "@/components/BaseSelect.vue";
 import BaseCheckbox from "@/components/BaseCheckbox.vue";
+import BaseRadioGroup from "@/components/BaseRadioGroup.vue";
 
 export default {
   components: {
     BaseInput,
     BaseSelect,
     BaseCheckbox,
+    BaseRadioGroup,
   },
 
   data() {
@@ -69,6 +67,10 @@ export default {
           music: false,
         },
       },
+      petOptions: [
+        { label: "Yes", value: 1 },
+        { label: "No", value: 0 },
+      ],
     };
   },
 };
