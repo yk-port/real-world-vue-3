@@ -8,19 +8,37 @@
         label="Select a category"
       />
 
-      <h3>Name & describe your event</h3>
-      <BaseInput v-model="event.title" label="Title" type="text" />
-      <BaseInput v-model="event.description" label="Description" type="text" />
+      <fieldset>
+        <legend>Name & describe your event</legend>
 
-      <h3>Where is your event?</h3>
-      <BaseInput v-model="event.location" label="Location" type="text" />
+        <BaseInput v-model="event.title" label="Title" type="text" />
+        <BaseInput
+          v-model="event.description"
+          label="Description"
+          type="text"
+        />
+      </fieldset>
 
-      <h3>Are pets allowed?</h3>
-      <BaseRadioGroup v-model="event.pets" name="pets" :options="petOptions" />
+      <fieldset>
+        <legend>Where is your event?</legend>
+        <BaseInput v-model="event.location" label="Location" type="text" />
+      </fieldset>
 
-      <h3>Extras</h3>
-      <BaseCheckbox v-model="event.extras.catering" label="catering" />
-      <BaseCheckbox v-model="event.extras.music" label="music" />
+      <fieldset>
+        <legend>Are pets allowed?</legend>
+
+        <BaseRadioGroup
+          v-model="event.pets"
+          name="pets"
+          :options="petOptions"
+        />
+      </fieldset>
+
+      <fieldset>
+        <legend>Extras</legend>
+        <BaseCheckbox v-model="event.extras.catering" label="catering" />
+        <BaseCheckbox v-model="event.extras.music" label="music" />
+      </fieldset>
 
       <button type="submit">Submit</button>
     </form>
@@ -82,3 +100,17 @@ export default {
   },
 };
 </script>
+
+<style>
+fieldset {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+
+legend {
+  font-size: 28px;
+  font-weight: 700;
+  margin-top: 20px;
+}
+</style>
