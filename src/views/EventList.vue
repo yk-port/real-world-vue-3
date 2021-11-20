@@ -51,3 +51,26 @@ export default {
   align-items: center;
 }
 </style>
+
+<style scoped>
+.events {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.pagination {
+  display: flex;
+  width: 290px;
+}
+.pagination a {
+  flex: 1;
+  text-decoration: none;
+  color: #2c3e50;
+}
+#page-prev {
+  text-align: left;
+}
+#page-next {
+  text-align: right;
+}
+</style>
