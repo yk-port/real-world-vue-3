@@ -1,15 +1,30 @@
 <template>
   <div class="events">
     <EventCard v-for="event in events" :key="event.id" :event="event" />
+
+    <router-link
+      :to="{ name: 'EventList', query: { page: page - 1 } }"
+      rel="prev"
+      v-if="page !== 1"
+      >Prev</router-link
+    >
+
+    <router-link
+      :to="{ name: 'EventList', query: { page: page + 1 } }"
+      rel="next"
+      >Next</router-link
+    >
   </div>
 </template>
 
 <script>
 import EventCard from "@/components/EventCard.vue";
 import EventService from "@/services/EventService";
+import { watchEffect } from "@vue/runtime-core";
 
 export default {
   name: "EventList",
+  props: ["page"],
   components: {
     EventCard,
   },
@@ -19,9 +34,12 @@ export default {
     };
   },
   created() {
-    EventService.getEvents()
-      .then((response) => (this.events = response.data))
-      .catch((error) => console.log(error));
+    watchEffect(() => {
+      this.events = null;
+      EventService.getEvents(2, this.page)
+        .then((response) => (this.events = response.data))
+        .catch((error) => console.log(error));
+    });
   },
 };
 </script>
