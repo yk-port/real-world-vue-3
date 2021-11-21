@@ -22,6 +22,7 @@ body {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  text-align: center;
   color: #2c3e50;
 }
 #nav {
@@ -54,40 +55,6 @@ a {
 img {
   border-style: none;
   width: 100%;
-}
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  display: flex;
-  align-items: center;
-  font-family: "Montserrat", sans-serif;
-}
-h1 {
-  font-size: 50px;
-  font-weight: 700;
-}
-h2 {
-  font-size: 38px;
-  font-weight: 700;
-}
-h3 {
-  font-size: 28px;
-  font-weight: 700;
-}
-h4 {
-  font-size: 21px;
-  font-weight: 700;
-}
-h5 {
-  font-size: 16px;
-  font-weight: 700;
-}
-h6 {
-  font-size: 15px;
-  font-weight: 700;
 }
 b,
 strong {
