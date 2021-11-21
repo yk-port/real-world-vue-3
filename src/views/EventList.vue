@@ -38,7 +38,9 @@ export default {
       this.events = null;
       EventService.getEvents(2, this.page)
         .then((response) => (this.events = response.data))
-        .catch((error) => console.log(error));
+        .catch(() => {
+          this.$router.push({ name: "NetworkError" });
+        });
     });
   },
 };
